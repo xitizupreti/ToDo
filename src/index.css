@@ -1,0 +1,74 @@
+/* *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+body {
+  background-color: violet;
+}
+div {
+  background-color: blueviolet;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  color: aqua;
+  background-color: rgb(28, 13, 226);
+  cursor: pointer;
+  border: none;
+  border-radius: 7%;
+  font-size: 30px;
+}
+h1 {
+  text-transform: capitalize;
+  width: auto;
+  text-align: center;
+  max-width: 100vh;
+  max-height: 800px;
+  background-color: aqua;
+  border-radius: 15px;
+  padding: 2%;
+  font-size: 40px;
+  color: rebeccapurple;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+p {
+  text-transform: capitalize;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rebeccapurple;
+  background-color: aqua;
+  font-size: 20px;
+}
+
+h1::-webkit-scrollbar {
+  display: none;
+}
+
+input {
+  width: 450px;
+  padding: 25px;
+  color: rgb(90, 83, 83);
+  font-size: 150%;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: dotted royalblue;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  text-align: center;
+  color: rgb(90, 83, 83);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  font-size: 100%;
+}
