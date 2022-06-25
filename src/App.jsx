@@ -1,109 +1,55 @@
 import React, { useState } from "react";
+import "./todo";
+import Todolist from "./todo";
 
 const App = () => {
-  const [fullname, setfullname] = useState({
-    fname: "",
-    lname: "",
-    email: "",
-    phone: "",
-  });
+  const [Inputlist, setInputlist] = useState("");
 
-  const e = (event) => {
-    const { value, name } = event.target;
+  const [items, setitems] = useState([]);
 
-    setfullname((preValue) => {
-      return {
-        ...preValue,
-        [name]: value,
-      };
-      // if (name === "fname") {
-      //   return {
-      //     fname: value,
-      //     lname: preValue.lname,
-      //     email: preValue.email,
-      //     phone: preValue.phone,
-      //   };
-      // }
-      // else if (name === "lname") {
-      //   return {
-      //     fname: preValue.fname,
-      //     lname: value,
-      //     email: preValue.email,
-      //     phone: preValue.phone,
-      //   };
-      // }
-      // else if (name === "email") {
-      //   return {
-      //     fname: preValue.fname,
-      //     lname: preValue.lname,
-      //     email: value,
-      //     phone: preValue.phone,
-      //   };
-      // }
-      // else if (name === "phone") {
-      //   return {
-      //     fname: preValue.fname,
-      //     lname: preValue.lname,
-      //     email: preValue.email,
-      //     phone: value,
-      //   };
-      // }
+  const add = (event) => {
+    setInputlist(event.target.value);
+  };
+  const list = () => {
+    setitems((olditems) => {
+      return [...olditems, Inputlist];
     });
+    setInputlist("");
+    // {document.getElementById('clear').value=''}
   };
-
-  const done = (event) => {
-    event.preventDefault();
-    alert("submitted");
-  };
-
+  const del=(id)=>{
+    setitems((olditems)=>{
+      return olditems.filter((arrele,index)=>{
+        return index !== id;
+      })
+    })
+  }
   return (
     <>
-      <form onSubmit={done}>
-        <div>
-          <h1>
-            Hello {fullname.fname} {fullname.lname}
-          </h1>
-          <p>{fullname.email}</p>
-          <p>{fullname.phone}</p>
+      <div className="main_div">
+        <div className="center_div">
+          <br />
+          <h1>ToDo List</h1>
+          <br />
           <input
+            id="clear"
             type="text"
-            placeholder="Enter your name"
-            name="fname"
-            onChange={e}
-            value={fullname.fname}
-            autoComplete="off"
+            placeholder="Add Items"
+            value={Inputlist}
+            onChange={add}
           ></input>
-          <input
-            type="text"
-            placeholder="Enter your pw"
-            name="lname"
-            onChange={e}
-            value={fullname.lname}
-            autoComplete="off"
-          ></input>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            name="email"
-            onChange={e}
-            value={fullname.email}
-            autoComplete="off"
-          ></input>
-          <input
-            type="number"
-            placeholder="Enter your pno"
-            name="phone"
-            onChange={e}
-            value={fullname.phone}
-            autoComplete="off"
-          ></input>
-          <button>Click Me ❤️</button>
+          <button type="submit" id="p" onClick={list}>
+            +
+          </button>
+          <ol>
+            {items.map((itemval, index) => {
+              return <Todolist key={index} id={index} text={itemval} onSelect={del} />;
+            })}
+          </ol>
         </div>
-      </form>
+      </div>
     </>
   );
 };
-
-// ... => spread operator to call whole array
 
 export default App;
