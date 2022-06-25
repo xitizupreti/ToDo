@@ -17,13 +17,13 @@ const App = () => {
     setInputlist("");
     // {document.getElementById('clear').value=''}
   };
-  const del=(id)=>{
-    setitems((olditems)=>{
-      return olditems.filter((arrele,index)=>{
+  const del = (id) => {
+    setitems((olditems) => {
+      return olditems.filter((arrele, index) => {
         return index !== id;
-      })
-    })
-  }
+      });
+    });
+  };
   return (
     <>
       <div className="main_div">
@@ -43,7 +43,14 @@ const App = () => {
           </button>
           <ol>
             {items.map((itemval, index) => {
-              return <Todolist key={index} id={index} text={itemval} onSelect={del} />;
+              return (
+                <Todolist
+                  key={index}
+                  id={index}
+                  text={itemval}
+                  onSelect={del}
+                />
+              );
             })}
           </ol>
         </div>

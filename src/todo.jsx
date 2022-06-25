@@ -1,15 +1,17 @@
 import React from "react";
 
 const Todolist = (props) => {
-    const del=()=>{
-        
-    }
   return (
     <>
       <div className="todo_style">
-        <button className="fa_times"  onClick={()=>{
+        <button
+          className="fa_times"
+          onClick={() => {
             props.onSelect(props.id);
-        }}>x</button>
+          }}
+        >
+          x
+        </button>
         <li>{props.text}</li>
       </div>
     </>

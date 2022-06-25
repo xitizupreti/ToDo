@@ -50,7 +50,7 @@ input {
   border-bottom: 4px solid #8566aa;
   outline: none;
 }
-#p{
+#p {
   min-height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -81,14 +81,14 @@ ol li {
   text-transform: capitalize;
 }
 
-.todo_style{
+.todo_style {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
 }
 
-.todo_style .fa_times{
+.todo_style .fa_times {
   width: 30px;
   height: 30px;
   display: flex;
@@ -96,12 +96,12 @@ ol li {
   align-items: center;
   background-color: #8566aa;
   border-radius: 50%;
-  margin:2px 15px 5px 10px;
+  margin: 2px 15px 5px 10px;
   color: aliceblue;
-  box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.3);
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
-.todo_style .fa_times:hover{
+.todo_style .fa_times:hover {
   background-color: crimson;
   cursor: pointer;
 }
