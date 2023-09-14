@@ -1,26 +1,33 @@
 import React, { useState } from "react";
-import "./todo";
 import Todolist from "./todo";
 
 const App = () => {
   const [Inputlist, setInputlist] = useState("");
-
   const [items, setitems] = useState([]);
 
   const add = (event) => {
     setInputlist(event.target.value);
   };
   const list = () => {
-    setitems((olditems) => {
-      return [...olditems, Inputlist];
-    });
-    setInputlist("");
+    if (Inputlist.length > 2) {
+      setitems((olditems) => {
+        return [...olditems, Inputlist];
+      });
+      setInputlist("");
+    }
     // {document.getElementById('clear').value=''}
   };
   const del = (id) => {
     setitems((olditems) => {
-      return olditems.filter((arrele, index) => {
+      return olditems.filter((arr, index) => {
         return index !== id;
+      });
+    });
+  };
+  const all = (id) => {
+    setitems((olditems) => {
+      return olditems.filter((arr, index) => {
+        return index == id;
       });
     });
   };
@@ -41,6 +48,12 @@ const App = () => {
           <button type="submit" id="p" onClick={list}>
             +
           </button>
+          <div className="todo_style">
+            <button type="submit" className="fa_times" onClick={all}>
+              xAx
+            </button>
+          </div>
+
           <ol>
             {items.map((itemval, index) => {
               return (
