@@ -23,14 +23,14 @@ const App = () => {
   const all = (id) => {
     setitems((olditems) => {
       return olditems.filter((arr, index) => {
-        return index == id;
+        return index === id;
       });
     });
   };
   return (
     <>
       <div className="main_div">
-        <div className="center_div">
+        <form onSubmit={(e)=>e.preventDefault()}  className="center_div">
           <br />
           <h1>ToDo List</h1>
           <br />
@@ -62,7 +62,7 @@ const App = () => {
               );
             })}
           </ol>
-        </div>
+        </form>
       </div>
     </>
   );
