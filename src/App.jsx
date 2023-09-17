@@ -17,12 +17,8 @@ const App = () => {
     }
     // {document.getElementById('clear').value=''}
   };
-  const del = (id) => {
-    setitems((olditems) => {
-      return olditems.filter((arr, index) => {
-        return index !== id;
-      });
-    });
+  const del = () => {
+    return setitems([]);
   };
   const all = (id) => {
     setitems((olditems) => {
